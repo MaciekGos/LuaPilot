@@ -1,0 +1,45 @@
+2026-10-21 11:53:10 mini chat API on http://127.0.0.1:17812
+2026-10-21 11:53:10 guide folder: /tmp/t1/home/LuaPilot/Guide
+2026-10-21 11:53:10 === start v2.0.3 pid=556 ===
+2026-10-21 11:53:10 servers: roblox
+2026-10-21 11:53:10 listening on ws://127.0.0.1:17811
+2026-10-21 11:53:10 [roblox] starting: /usr/bin/python3.12 /home/claude/luapilot/launch_studio_mcp.py
+2026-10-21 11:53:10 [roblox] launch_studio_mcp: StudioMCP not found. Install Roblox Studio and enable 'Studio as MCP server' (Assistant Settings > MCP Servers).
+2026-10-21 11:53:10 [roblox] process ended (exit None)
+2026-10-21 11:53:10 [roblox] could not start: [Errno 32] Broken pipe
+2026-10-21 11:53:10 ready - 4 tools, Studio not connected yet
+2026-10-21 11:53:10 ACTION:  Open your place in Roblox Studio. |  Assistant Settings > MCP Servers > 'Enable Studio as MCP server'. |  Takes about 10 s - this window will report the connection.
+2026-10-22 09:00:53 mini chat API on http://127.0.0.1:17614
+2026-10-22 09:00:53 guide folder: /root/LuaPilot/Guide
+2026-10-22 09:00:53 models temp folder: /home/claude/luapilot/temp/models
+2026-10-22 09:00:53 Studio plugin link: port 17614 is busy, plugin import unavailable
+2026-10-22 09:00:53 === start v2.0.3 pid=549 ===
+2026-10-22 09:00:53 servers: roblox
+2026-10-22 09:00:53 listening on ws://127.0.0.1:17613
+2026-10-22 09:00:53 [roblox] starting: /usr/bin/python3.12 /home/claude/luapilot/launch_studio_mcp.py
+2026-10-22 09:00:53 [roblox] launch_studio_mcp: StudioMCP not found. Install Roblox Studio and enable 'Studio as MCP server' (Assistant Settings > MCP Servers).
+2026-10-22 09:00:53 [roblox] process ended (exit None)
+2026-10-22 09:00:53 [roblox] could not start: [Errno 32] Broken pipe
+2026-10-22 09:00:53 ready - 6 tools, Studio not connected yet
+2026-10-22 09:00:53 ACTION:  Open your place in Roblox Studio. |  Assistant Settings > MCP Servers > 'Enable Studio as MCP server'. |  Takes about 10 s - this window will report the connection.
+2026-10-22 09:00:58 [roblox] starting: /usr/bin/python3.12 /home/claude/luapilot/launch_studio_mcp.py
+2026-10-22 09:00:58 [roblox] launch_studio_mcp: StudioMCP not found. Install Roblox Studio and enable 'Studio as MCP server' (Assistant Settings > MCP Servers).
+2026-10-22 09:00:58 [roblox] process ended (exit 1)
+2026-10-22 09:00:58 [roblox] restart failed: [Errno 32] Broken pipe
+2026-10-22 09:17:43 mini chat API on http://127.0.0.1:17614
+2026-10-22 09:17:43 guide folder: /root/LuaPilot/Guide
+2026-10-22 09:17:43 models temp folder: /tmp/m5
+2026-10-22 09:17:43 Studio plugin link: listening on 127.0.0.1:17615
+2026-10-22 09:17:43 === start v2.0.3 pid=574 ===
+2026-10-22 09:17:43 servers: roblox
+2026-10-22 09:17:43 listening on ws://127.0.0.1:17613
+2026-10-22 09:17:43 [roblox] starting: /usr/bin/python3 /home/claude/luapilot/launch_studio_mcp.py
+2026-10-22 09:17:43 [roblox] launch_studio_mcp: StudioMCP not found. Install Roblox Studio and enable 'Studio as MCP server' (Assistant Settings > MCP Servers).
+2026-10-22 09:17:43 [roblox] process ended (exit 1)
+2026-10-22 09:17:43 [roblox] could not start: [Errno 32] Broken pipe
+2026-10-22 09:17:43 ready - 6 tools, Studio not connected yet
+2026-10-22 09:17:43 ACTION:  Open your place in Roblox Studio. |  Assistant Settings > MCP Servers > 'Enable Studio as MCP server'. |  Takes about 10 s - this window will report the connection.
+2026-10-22 09:17:48 [roblox] starting: /usr/bin/python3 /home/claude/luapilot/launch_studio_mcp.py
+2026-10-22 09:17:48 [roblox] launch_studio_mcp: StudioMCP not found. Install Roblox Studio and enable 'Studio as MCP server' (Assistant Settings > MCP Servers).
+2026-10-22 09:17:48 [roblox] process ended (exit 1)
+2026-10-22 09:17:48 [roblox] restart failed: [Errno 32] Broken pipe

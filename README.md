@@ -37,4 +37,8 @@ Pick **Use Blender** at the start. The bridge then starts the community `mcp-for
 
 Press **Guide** in the app to open your guide folder (`~/LuaPilot/Guide`): `AGENT_INSTRUCTIONS.md` (how to work), `STYLE_GUIDE.md` (how the project looks), `GAME_DESIGN.md` (long handbook, read in chapters), `ASSETS.md` (approved/rejected asset ids), `KNOWN_ISSUES.md` and `REFERENCES/` (your example pictures named `oldcity.png`, `mainmenu.png`, ...). Edit them freely; the AI reads the essentials at the start of every session and can ask for more with `style_guide` and `reference_images`. Defaults are only copied once and never overwritten. Per-project decisions go into `ServerStorage.LuaPilot.Memory` inside your place.
 
+---
+
+**Made with Claude AI.**
+
 License: MIT.

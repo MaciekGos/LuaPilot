@@ -1,7 +1,7 @@
 <p align="center"><img src="assets/logo-wide-dark.png" alt="LuaPilot" width="320"></p>
 
 # LuaPilot
-# ![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
+![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 Let a DeepSeek chat work inside your **Roblox Studio**. A browser extension reads the AI's commands, a small local bridge passes them to Roblox Studio's MCP server, and the results go back into the chat - so the AI can keep working on its own.

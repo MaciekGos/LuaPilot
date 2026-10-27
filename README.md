@@ -1,6 +1,6 @@
 <p align="center"><img src="assets/logo-wide-dark.png" alt="LuaPilot" width="320"></p>
 
-# LuaPilot
+# [Discontinued] LuaPilot
 ![Platform](https://img.shields.io/badge/platform-Windows-blue)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 

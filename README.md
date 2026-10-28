@@ -1,35 +1,36 @@
-<p align="center"><img src="assets/logo-wide-dark.png" alt="LuaPilot" width="320"></p>
+<p align="center"><img src="assets/logo-wide-dark.png" alt="LuauPilot" width="320"></p>
 
-# LuaPilot
+# LuauPilot
 
 ![Platform](https://img.shields.io/badge/platform-Windows-blue)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 > [!NOTE]
-> **LuaPilot will be renamed soon.**
+> **The project has been renamed to LuauPilot.**
 >
-> The project will soon receive a new name because **LuaPilot.com already exists and provides a very similar product**. The current name is therefore temporary, and the repository, application, and branding will be updated once the new name is finalized.
+> The name was changed because **LuaPilot.com already exists and provides a very similar product**.
+>
+> The rebranding is now in progress. Until a new release is published, some versions available in the **Releases** section may still use the old **LuaPilot** name. Older releases may also continue to use the old name, application branding, and paths.
 >
 > **The project itself is not discontinued.**
 
-LuaPilot lets a DeepSeek chat work inside your **Roblox Studio**. A browser extension reads the AI's commands, a small local bridge passes them to Roblox Studio's MCP server, and the results go back into the chat — so the AI can keep working on its own.
+LuauPilot lets a DeepSeek chat work inside your **Roblox Studio**. A browser extension reads the AI's commands, a small local bridge passes them to Roblox Studio's MCP server, and the results go back into the chat — so the AI can keep working on its own.
 
 > Use at your own risk. Provided "as is", no support obligation. Read [TERMS.md](TERMS.md). Not affiliated with any AI creator, any AI, or Roblox.
 
-## Generated with LuaPilot
+## Generated with LuauPilot
 
 <p align="center">
-  <img src="assets/img1.jpg" alt="Generated with LuaPilot" width="800">
+  <img src="assets/img1.jpg" alt="Generated with LuauPilot" width="800">
 </p>
-
 
 ## Install (Windows)
 
 1. Run `windows.exe` (the installer; build it with `installer\build.bat`, see below). Attach it to your GitHub release under exactly that name: the in-app updater looks for it.
-2. Open **LuaPilot**. Press **Extension** — the extension folder path is copied to your clipboard.
+2. Open **LuauPilot**. Press **Extension** — the extension folder path is copied to your clipboard.
 3. In Chrome/Edge open `chrome://extensions`, enable *Developer mode*, click *Load unpacked*, paste the path (Ctrl+V) and confirm.
 4. Open Roblox Studio with a place and enable its MCP server (Assistant settings).
-5. Open <https://chat.deepseek.com/>, press **Start LuaPilot here** (optionally type your task first).
+5. Open <https://chat.deepseek.com/>, press **Start LuauPilot here** (optionally type your task first).
 
 In the app's **Settings** you can make it open DeepSeek and Roblox Studio automatically when it starts.
 
@@ -43,7 +44,7 @@ Press **Mini chat** in the app: a small always-on-top box (Send, Stop, expandabl
 
 The AI can call `catalog_search` / `catalog_images` (answered by the bridge) to browse free Creator Store assets, look at their thumbnails and then insert the one it picks with `insert_from_creator_store`.
 
-When you press **Start LuaPilot here** in a fresh chat you are asked two things: allow the catalog in this session, and use Blender.
+When you press **Start LuauPilot here** in a fresh chat you are asked two things: allow the catalog in this session, and use Blender.
 
 ## Blender (optional, per session)
 
@@ -53,7 +54,7 @@ Pick **Use Blender** at the start. The bridge then starts the community `mcp-for
 
 ## Guide for the AI
 
-Press **Guide** in the app to open your guide folder (`~/LuaPilot/Guide`): `AGENT_INSTRUCTIONS.md` (how to work), `STYLE_GUIDE.md` (how the project looks), `GAME_DESIGN.md` (long handbook, read in chapters), `ASSETS.md` (approved/rejected asset ids), `KNOWN_ISSUES.md` and `REFERENCES/` (your example pictures named `oldcity.png`, `mainmenu.png`, ...). Edit them freely; the AI reads the essentials at the start of every session and can ask for more with `style_guide` and `reference_images`. Defaults are only copied once and never overwritten. Per-project decisions go into `ServerStorage.LuaPilot.Memory` inside your place.
+Press **Guide** in the app to open your guide folder (`~/LuauPilot/Guide`): `AGENT_INSTRUCTIONS.md` (how to work), `STYLE_GUIDE.md` (how the project looks), `GAME_DESIGN.md` (long handbook, read in chapters), `ASSETS.md` (approved/rejected asset ids), `KNOWN_ISSUES.md` and `REFERENCES/` (your example pictures named `oldcity.png`, `mainmenu.png`, ...). Edit them freely; the AI reads the essentials at the start of every session and can ask for more with `style_guide` and `reference_images`. Defaults are only copied once and never overwritten. Per-project decisions go into `ServerStorage.LuauPilot.Memory` inside your place.
 
 ---
 

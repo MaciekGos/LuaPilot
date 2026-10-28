@@ -19,10 +19,9 @@ LuaPilot lets a DeepSeek chat work inside your **Roblox Studio**. A browser exte
 ## Generated with LuaPilot
 
 <p align="center">
-  <img src="img1.jpg" alt="Generated with LuaPilot" width="800">
+  <img src="assets/img1.jpg" alt="Generated with LuaPilot" width="800">
 </p>
 
-This image was created with the help of LuaPilot.
 
 ## Install (Windows)
 

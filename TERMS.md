@@ -1,6 +1,10 @@
 # LuaPilot - Terms of use / Regulamin
 
-Version 2.0.3 · Author: MaciekGos (https://github.com/MaciekGos)
+Version Alpha 0.02 · Author: MaciekGos (https://github.com/MaciekGos)
+
+> **Note: LuaPilot will be renamed soon.** The project will soon receive a new name because LuaPilot.com already exists and provides a very similar product. The current name is therefore temporary, and the repository, application, and branding will be updated once the new name is finalized. The project itself is not discontinued.
+>
+> **Uwaga: LuaPilot wkrótce zmieni nazwę.** Projekt wkrótce otrzyma nową nazwę, ponieważ istnieje już LuaPilot.com, który oferuje bardzo podobny produkt. Obecna nazwa jest więc tymczasowa, a repozytorium, aplikacja i branding zostaną zaktualizowane, gdy nowa nazwa zostanie ustalona. Sam projekt nie został porzucony.
 
 **Polski:** [przejdź do regulaminu](#regulamin-polski) · **English:** below
 

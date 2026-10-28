@@ -9,7 +9,8 @@ Wire format (JSON, one object per frame)
   bridge -> extension   {"re": 7, ...}            reply to request 7
                         {"ev": "state", ...}      unsolicited status push
 
-  ops: ping | state | tools | call | restart
+  ops: ping | state | tools | call | restart | chat_state | blender | feedback
+                        {"ev": "feedback", "open": bool, "url": ...}   the one-time "did it all work?" question
 """
 import asyncio
 import json
@@ -23,6 +24,7 @@ import time
 
 import blender
 import catalog
+import feedback
 import guide
 import models
 import retention
@@ -44,7 +46,7 @@ try:
 except Exception:
     pass
 
-VERSION = "2.0.3"
+VERSION = "Alpha 0.02"
 HOST = "127.0.0.1"
 PORT = int(os.environ.get("LP_BRIDGE_PORT", "17613"))
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -573,6 +575,39 @@ async def _broadcast(frame):
             pass
 
 
+# ── one-time feedback question (see feedback.py) ──────────────────────────
+ACTIVE_WINDOW_S = 300      # a command or a running chat in the last 5 minutes counts as "using it"
+FB_TICK_S = 15
+last_active = 0.0
+fb_seen = None
+
+
+def touch_active():
+    global last_active
+    last_active = time.monotonic()
+
+
+def fb_frame():
+    return {"ev": "feedback", "open": feedback.is_open(), "url": feedback.ISSUES_URL}
+
+
+async def feedback_loop():
+    """Counts active use, and tells the extensions when the question opens or is answered elsewhere."""
+    global fb_seen
+    while True:
+        await asyncio.sleep(FB_TICK_S)
+        try:
+            if sockets and time.monotonic() - last_active < ACTIVE_WINDOW_S:
+                if await asyncio.to_thread(feedback.add_usage, FB_TICK_S):
+                    log("feedback question is due (1 h of use)", "cyan", quiet=True)
+            now = await asyncio.to_thread(feedback.is_open)
+            if now != fb_seen:
+                fb_seen = now
+                await _broadcast(fb_frame())
+        except Exception as exc:  # noqa: BLE001 - never let this loop die
+            log(f"feedback loop: {exc}", "dim", quiet=True)
+
+
 def _make_mini_handler(token):
     class Mini(http.server.BaseHTTPRequestHandler):
         def log_message(self, *a):
@@ -684,6 +719,8 @@ async def handler(ws):
     log(f"extension connected ({len(sockets)})", "green")
     try:
         await ws.send(json.dumps(dict(await asyncio.to_thread(snapshot), ev="state")))
+        if await asyncio.to_thread(feedback.is_open):
+            await ws.send(json.dumps(fb_frame()))
         async for raw in ws:
             try:
                 msg = json.loads(raw)
@@ -695,15 +732,28 @@ async def handler(ws):
             elif op == "state":
                 await ws.send(json.dumps(dict(await asyncio.to_thread(snapshot), re=rid)))
             elif op == "tools":
-                await asyncio.to_thread(refresh_all)
+                # tools/list is a round trip to Studio; the list rarely changes, so refresh at most every 2 minutes
+                # (or when it is empty / the extension asks for it explicitly)
+                if msg.get("force") or not hub.index or time.monotonic() - TOOLS_AT[0] > 120:
+                    await asyncio.to_thread(refresh_all)
+                    TOOLS_AT[0] = time.monotonic()
                 await ws.send(json.dumps(dict(await asyncio.to_thread(snapshot), re=rid,
                                               tools=hub.listing())))
             elif op == "call":
+                touch_active()
                 # Own task, so pings keep being answered during a long tool call.
                 asyncio.create_task(run_call(ws, rid, msg.get("name", ""), msg.get("args") or {},
                                              float(msg.get("timeout_ms", 120000)) / 1000.0))
             elif op == "chat_state":
+                if msg.get("active"):
+                    touch_active()
                 chat_update(msg)
+            elif op == "feedback":
+                global fb_seen
+                await asyncio.to_thread(feedback.answer, str(msg.get("action") or ""))
+                fb_seen = await asyncio.to_thread(feedback.is_open)
+                await _broadcast(fb_frame())
+                await ws.send(json.dumps({"re": rid, "ok": True}))
             elif op == "blender":
                 try:
                     res = await asyncio.to_thread(blender_control, msg.get("action") or "status")
@@ -768,6 +818,11 @@ def blender_control(action):
         hub.reindex()
         return dict(st, on=False, problem="no_tools", detail=tail)
     return dict(st, on=True, tools=len(srv.tools))
+
+
+RENAME_NOTE = ("Note: LuaPilot will be renamed soon (LuaPilot.com already exists). The current name is temporary; "
+               "the project is not discontinued.")
+TOOLS_AT = [0.0]
 
 
 def refresh_all():
@@ -933,8 +988,9 @@ async def main():
     asyncio.create_task(_tidy_loop())
     models.LOG = lambda m: log(m, "green")
     log("Studio plugin link: " + (f"listening on 127.0.0.1:{models.PLUGIN_PORT}" if models.start_plugin_server() else f"port {models.PLUGIN_PORT} is busy, plugin import unavailable"), "cyan")
-    print(f"\n  {_paint(f'LuaPilot bridge v{VERSION}', 'cyan')}  ws://{HOST}:{PORT}\n")
-    log(f"=== start v{VERSION} pid={os.getpid()} ===", "cyan", quiet=True)
+    print(f"\n  {_paint(f'LuaPilot bridge {VERSION}', 'cyan')}  ws://{HOST}:{PORT}")
+    print(f"  {_paint(RENAME_NOTE, 'dim')}\n")
+    log(f"=== start {VERSION} pid={os.getpid()} ===", "cyan", quiet=True)
     await asyncio.to_thread(clean_orphaned_proxy)
     await asyncio.to_thread(check_studio_port)
     hub.load()
@@ -950,6 +1006,7 @@ async def main():
     async with server:
         log(f"listening on ws://{HOST}:{PORT}", "cyan")
         asyncio.create_task(guarded("server watcher", watch_servers))
+        asyncio.create_task(guarded("feedback", feedback_loop))
         asyncio.create_task(boot())
         await asyncio.Future()
 

@@ -1,0 +1,7 @@
+logs/
+__pycache__/
+installer/build/
+installer/dist/
+installer/Output/
+extension/tests/node_modules/
+*.pyc

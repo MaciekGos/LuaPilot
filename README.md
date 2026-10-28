@@ -1,25 +1,25 @@
 <p align="center"><img src="assets/logo-wide-dark.png" alt="LuaPilot" width="320"></p>
 
-# [Discontinued] LuaPilot
+# LuaPilot
 
 ![Platform](https://img.shields.io/badge/platform-Windows-blue)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
-> [!WARNING]
-> **LuaPilot has been discontinued.**
+> [!NOTE]
+> **LuaPilot will be renamed soon.**
 >
-> The attempted fix for DeepSeek suspensions did not solve the problem reliably. Users are still reporting account suspensions while using LuaPilot, even though I personally have not been suspended during my testing.
+> The project will soon receive a new name because **LuaPilot.com already exists and provides a very similar product**. The current name is therefore temporary, and the repository, application, and branding will be updated once the new name is finalized.
 >
-> Because I cannot reliably prevent this from happening, I have decided to discontinue LuaPilot. **I do not recommend using it with a DeepSeek account you care about.**
+> **The project itself is not discontinued.**
 
-LuaPilot lets a DeepSeek chat work inside your **Roblox Studio**. A browser extension reads the AI's commands, a small local bridge passes them to Roblox Studio's MCP server, and the results go back into the chat - so the AI can keep working on its own.
+LuaPilot lets a DeepSeek chat work inside your **Roblox Studio**. A browser extension reads the AI's commands, a small local bridge passes them to Roblox Studio's MCP server, and the results go back into the chat — so the AI can keep working on its own.
 
 > Use at your own risk. Provided "as is", no support obligation. Read [TERMS.md](TERMS.md). Not affiliated with any AI creator, any AI, or Roblox.
 
 ## Install (Windows)
 
 1. Run `windows.exe` (the installer; build it with `installer\build.bat`, see below). Attach it to your GitHub release under exactly that name: the in-app updater looks for it.
-2. Open **LuaPilot**. Press **Extension** - the extension folder path is copied to your clipboard.
+2. Open **LuaPilot**. Press **Extension** — the extension folder path is copied to your clipboard.
 3. In Chrome/Edge open `chrome://extensions`, enable *Developer mode*, click *Load unpacked*, paste the path (Ctrl+V) and confirm.
 4. Open Roblox Studio with a place and enable its MCP server (Assistant settings).
 5. Open <https://chat.deepseek.com/>, press **Start LuaPilot here** (optionally type your task first).

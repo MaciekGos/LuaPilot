@@ -16,6 +16,14 @@ LuaPilot lets a DeepSeek chat work inside your **Roblox Studio**. A browser exte
 
 > Use at your own risk. Provided "as is", no support obligation. Read [TERMS.md](TERMS.md). Not affiliated with any AI creator, any AI, or Roblox.
 
+## Generated with LuaPilot
+
+<p align="center">
+  <img src="img1.jpg" alt="Generated with LuaPilot" width="800">
+</p>
+
+This image was created with the help of LuaPilot.
+
 ## Install (Windows)
 
 1. Run `windows.exe` (the installer; build it with `installer\build.bat`, see below). Attach it to your GitHub release under exactly that name: the in-app updater looks for it.

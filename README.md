@@ -18,6 +18,14 @@ LuauPilot lets a DeepSeek chat work inside your **Roblox Studio**. A browser ext
 
 > Use at your own risk. Provided "as is", no support obligation. Read [TERMS.md](TERMS.md). Not affiliated with any AI creator, any AI, or Roblox.
 
+## What's new in 0.03
+
+- **Background tab support** — the extension tab no longer goes to sleep when running in the background, keeping LuauPilot responsive even when you're working in another tab.
+- **General improvements** — improved stability, performance and overall reliability.
+- **Various fixes** — cleaned up several smaller issues across the extension.
+
+LuauPilot is still in alpha, so more improvements and fixes are coming.
+
 ## Generated with LuauPilot
 
 <p align="center">
